@@ -16,7 +16,7 @@ Practice basic states and validation
 
 ## App 3: User Age Form
 
-Practice more form input with modal box validation, learn custom wrapper, Fragment, React Portal & Refs
+Practice more form input with modal box validation, learn custom wrapper, Fragment, React `Portal` & `Ref`s
 
 <img src="app3.png" width="250">
 
@@ -37,3 +37,5 @@ Context limitation:
 ## App 5: Food Order
 
 Practicing what we've learn so far in a slighter bigger app.
+
+<img src="app5.png" width="250">
