@@ -33,3 +33,7 @@ Context limitation:
 
 - React context is NOT optimised for high frequency changes
 - should not be used to replace ALL component communications and props
+
+## App 5: Food Order
+
+Practicing what we've learn so far in a slighter bigger app.
