@@ -88,11 +88,9 @@ class ErrorBoundary extends Component {
 
 Try out a simple HTTP GET and POST integration via test endpoints.
 
-## Custom Hooks
+## App 7: Tasks with Custom Hooks
 
 - Outsource stateful logic into reusable functions. Unlink regular functions, custom hooks can use other React hooks and React state
 - name the custom hooks with `use` prefix eg. `useCounter`
 - states created in a custom hooks are independent to calling components and not shared across components
 - can call the custom hooks as any other functional components
-
-## App 7: Tasks with custom hook
