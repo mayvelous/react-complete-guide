@@ -15,7 +15,9 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('https://swapi.dev/api/films/');
+      const response = await fetch(
+        'YOUR_FIREBASE_REALTIME_DB_URL_GOES_HERE/movies.json',
+      ); //https://swapi.dev/api/films/
       if (!response.ok) {
         throw new Error('Something went wrong');
       }

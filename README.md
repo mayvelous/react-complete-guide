@@ -94,3 +94,5 @@ Try out a simple HTTP GET and POST integration via test endpoints.
 - name the custom hooks with `use` prefix eg. `useCounter`
 - states created in a custom hooks are independent to calling components and not shared across components
 - can call the custom hooks as any other functional components
+
+## App 7: Tasks with custom hook
