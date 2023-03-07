@@ -17,7 +17,7 @@ const useInput = (validateValue) => {
 
   const reset = () => {
     setEnteredValue('');
-    setIsTouched('false');
+    setIsTouched(false);
   };
 
   const inputClasses = hasError ? 'form-control invalid' : 'form-control';
