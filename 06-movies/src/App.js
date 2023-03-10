@@ -16,7 +16,7 @@ function App() {
     setError(null);
     try {
       const response = await fetch(
-        'YOUR_FIREBASE_REALTIME_DB_URL_GOES_HERE/movies.json',
+        `${process.env.REACT_APP_REALTIME_DB_URL}/movies.json`,
       ); //https://swapi.dev/api/films/
       if (!response.ok) {
         throw new Error('Something went wrong');
@@ -40,25 +40,30 @@ function App() {
   }, []);
 
   useEffect(() => {
+    console.log('===inside useEffect');
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
 
   async function addMovieHandler(movie) {
     setError(null);
     try {
-      const response = await fetch('', {
-        method: 'POST',
-        body: JSON.stringify(movie),
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `${process.env.REACT_APP_REALTIME_DB_URL}/movies.json`,
+        {
+          method: 'POST',
+          body: JSON.stringify(movie),
+          headers: {
+            'Content-Type': 'application/json',
+          },
         },
-      });
+      );
       if (!response.ok) {
         throw new Error('Something went wrong.');
       }
 
       const data = await response.json();
       console.log(data);
+      fetchMoviesHandler();
     } catch (error) {
       setError(error.message);
     }
