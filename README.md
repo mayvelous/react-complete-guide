@@ -95,4 +95,4 @@ Try out a simple HTTP GET and POST integration via test endpoints.
 - states created in a custom hooks are independent to calling components and not shared across components
 - can call the custom hooks as any other functional components
 
-# App 8: Form validations with Custom Hook
+## App 8: Form validations with Custom Hook
