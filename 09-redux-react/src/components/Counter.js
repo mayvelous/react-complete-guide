@@ -12,7 +12,7 @@ const Counter = () => {
   const dispatch = useDispatch();
 
   // useSelecter sets up subscription to redux store automatically
-  const { counter, showCounter } = useSelector((state) => state);
+  const { counter, showCounter } = useSelector((state) => state.counter);
 
   const incrementHandler = () => {
     // dispatch({ type: 'increment' });
