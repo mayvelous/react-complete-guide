@@ -131,4 +131,6 @@ npm install redux react-redux
 
 ### To use with Redux Toolkit
 
+<img src="app9.png" width="250">
+
 You can uninstall `redux` and install `@reduxjs/toolkit`. Redux is already included in Redux Toolkit.
