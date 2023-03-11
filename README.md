@@ -96,3 +96,39 @@ Try out a simple HTTP GET and POST integration via test endpoints.
 - can call the custom hooks as any other functional components
 
 ## App 8: Form validations with Custom Hook
+
+## App 9: Redux
+
+What is `Redux`? Redux is a state management system for cross component or app wide state.
+3 kinds of states:
+
+- `local state`: state that belongs to a single component. Should be managed component-internal with useState or useReducer
+- `cross-component stat`e: state that affects multiple components eg. open/closed state of a modal overlay. Requires `prop chains` or `prop drilling`
+- `app-wide state`: state that affects the entire app (most/all components) eg. user authentication status. Also requires `prop chains` or `prop drilling`
+
+### React Context has potential disadvantages
+
+- complex setup / management depending on complexity of the app, can lead to deeply nested JSX code and/or huge Context Provider components
+- performance - it's not optimised for high frequency state changes
+
+### Core Redux Concepts
+
+- has `one central data (state) store`. We don't need to directly manage the store
+- Components setup `subscriptions` to central store. Whenever data changes the store notifies components, components get the data they need (a slice of redux store) for their usage.
+- Components NEVER directly manipulate the data. We use Reducer function, which is responsible for mutating (changing) the store data.
+- Reducer function is NOT useReducer hook. It's a general concept
+- Components trigger/dispatch certain `Actions`
+- An action is a simple js object which describe the kind of operation the reducer should perform
+
+### To use Redux with React
+
+```
+npm install redux react-redux
+```
+
+- Create a `store` folder in the `src` folder to store redux related code files
+- The reducer func, should NEVER mutate the state, instead overwrite the state to return a brand new state; always copy and create new obj to avoid unexpected behaviors.
+
+### To use with Redux Toolkit
+
+You can uninstall `redux` and install `@reduxjs/toolkit`. Redux is already included in Redux Toolkit.
