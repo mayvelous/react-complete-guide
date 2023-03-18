@@ -167,4 +167,4 @@ Where should our logic (code) go?
 ### What is a `Thunk`?
 
 Is a function that delays an action until later.
-An action creator function that does NOT return the action itself but another function which eventially returns the action.
+An action creator function that does NOT return the action itself but another function which eventually returns the action.
