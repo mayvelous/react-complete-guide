@@ -6,19 +6,19 @@ Learning Reactjs, Hooks, Redux, React Routing, Animations, Next.js
 
 Basic expense tracker app to study components, states, styling and debugging
 
-<img src="app1.png" width="250">
+<img src="imgs/app1.png" width="250">
 
 ## App 2: Course Goals Input
 
 Practice basic states and validation
 
-<img src="app2.png" width="250">
+<img src="imgs/app2.png" width="250">
 
 ## App 3: User Age Form
 
 Practice more form input with modal box validation, learn custom wrapper, Fragment, React `Portal` & `Ref`s
 
-<img src="app3.png" width="250">
+<img src="imgs/app3.png" width="250">
 
 ## App 4: Login admin
 
@@ -27,7 +27,7 @@ Learn `useEffect` (eg. use to store data in browser storage, send http requests,
 `useContext` (to manage site wide state, create a context `React.createContext(...)` and use `ctx.Provider` to wrap the consuming components and consume it using `ctx.Consumer` or `useContext` hook)
 useRef with `React.forwardRef` component func to use `useImperativeHandle` (I'm lost there)
 
-<img src="app4.png" width="250">
+<img src="imgs/app4.png" width="250">
 
 Context limitation:
 
@@ -38,7 +38,7 @@ Context limitation:
 
 Practicing what we've learn so far in a slighter bigger app.
 
-<img src="app5.png" width="250">
+<img src="imgs/app5.png" width="250">
 
 ## How React works behind the scene
 
@@ -131,7 +131,7 @@ npm install redux react-redux
 
 ### To use with Redux Toolkit
 
-<img src="app9.png" width="250">
+<img src="imgs/app9.png" width="250">
 
 You can uninstall `redux` and install `@reduxjs/toolkit`. Redux is already included in Redux Toolkit.
 
@@ -148,4 +148,23 @@ You can uninstall `redux` and install `@reduxjs/toolkit`. Redux is already inclu
 
 Practice more on redux toolkit store, slice, reducer and related hooks.
 
-<img src="app10.png" width="250">
+<img src="imgs/app10.png" width="250">
+
+### Fat Reducers vs. Fat Components vs. Fat Actions
+
+Where should our logic (code) go?
+
+- `Synchronous`, side-effect free code (ie. data transformations):
+
+  - Prefer `Reducers`
+  - Avoid `Action Creators` or `Components`
+
+- `Async` code or code with side-effects:
+
+  - Prefer `Action Creators` or `Components` (inside `useEffect`)
+  - Must NEVER use `Reducers`
+
+### What is a `Thunk`?
+
+Is a function that delays an action until later.
+An action creator function that does NOT return the action itself but another function which eventially returns the action.
