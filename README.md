@@ -134,3 +134,18 @@ npm install redux react-redux
 <img src="app9.png" width="250">
 
 You can uninstall `redux` and install `@reduxjs/toolkit`. Redux is already included in Redux Toolkit.
+
+### Side Effects, Async Tasks & Redux
+
+- Reducers must be `pure`, `side-effect-free`, `synchronous` functions
+- Input (Old State + Action) => Output (New State)
+- Where should side-effects and async tasks be executed?
+
+  - Inside the `components` (eg. useEffect())
+  - Inside the `action creator`
+
+## App 10: Redux - more practice
+
+Practice more on redux toolkit store, slice, reducer and related hooks.
+
+<img src="app10.png" width="250">
