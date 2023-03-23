@@ -267,12 +267,18 @@ const RootLayout = () => {
 };
 ```
 
-### loader, useLoaderData
+### loader, useLoaderData, useNavigation, useRouteError
 
-React router v6 or higher, there is a extra property, `loader` from the route definition for fetching data. `loader` is a property that wants a function as a value. That function will be executed by react router whenever a user is visiting that route. ie. just before element/jsx code is rendered, the loader function will be executed. You can use the loader function to load and fetch data for the route.
+React router v6 or higher, there is a extra property, `loader` from the route definition for fetching data.
 
 ```
 { index: true, element: <EventsPage />, loader: () => { return []; } },
 ```
 
-Use `useLoaderData` hook to access data returned by the loader in the component or direct child components. It's a special hook to access closest loaded data.
+- `loader` is a property that wants a function as a value. That function will be executed by react router whenever a user is visiting that route. ie. just before element/jsx code is rendered, the loader function will be executed. You can use the loader function to load and fetch data for the route.
+- loader func can return any type of data. Also can return a browser `Response` obj
+- loader code is not execute on server, it's all client side execution
+- Use `useLoaderData` hook to access data returned by the loader in the component or direct child components. It's a special hook to access closest loaded data.
+- `useNavigation` hook provide route transition states. Its `state` property provides `idle`, `loading` or `submitting`
+- loader func can throw an error obj and react router passes the error to the closest `errorElement`
+- `useRouteError` hook to access the error object passed from the react router loader. The shape of the obj depends on whatever you throw in the loader func.
