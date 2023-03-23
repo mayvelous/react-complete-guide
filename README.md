@@ -168,3 +168,111 @@ Where should our logic (code) go?
 
 Is a function that delays an action until later.
 An action creator function that does NOT return the action itself but another function which eventually returns the action.
+
+## React Router
+
+```
+npm install react-router-dom
+```
+
+User `createBrowserRouter` to configure the routes definitions obj array and `RouterProvider` to return the route definitions in jsx
+
+Route obj can have:
+
+- `path`,
+- `element` jsx page to render,
+- `errorElement` error page to render,
+- `children` nested child routes definition array
+- root level default route can be defined with empty path `path: ''` or using `index: true`
+
+```
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: 'events',
+        element: <EventsRootLayout />,
+        children: [
+          { index: true, element: <EventsPage /> },
+          { path: ':id', element: <EventDetailPage /> },
+          { path: 'new', element: <NewEventPage /> },
+          { path: ':id/edit', element: <EditEventPage /> },
+        ],
+      },
+    ],
+  },
+]);
+
+function App() {
+  return <RouterProvider router={router} />;
+}
+```
+
+### Link, NavLink, useNavigate
+
+- can use `Link` or `NavLink` or dynamically binded `useNavigate` hooks
+- `NavLink` is used when you want to highlight the current or active link using the `isActive` object attribute and `end` element to specify root node
+- `Link` is used when there is no special style or highlighting is required
+- Use the `NavLink` or `Link` when you need links that are routing to pages that belong to your application. For external links, `a` is preferrable.
+- `useNavigate` hook in event handlers or dynamic link creations
+
+```
+<ul className={classes.list}>
+  <li>
+    <NavLink
+      to='/'
+      className={({ isActive }) => (isActive ? classes.active : '')}
+      end>
+      Home
+    </NavLink>
+  </li>
+  <li>
+    <NavLink
+      to='events'
+      className={({ isActive }) => (isActive ? classes.active : '')}>
+      Events
+    </NavLink>
+  </li>
+</ul>
+
+const navigate = useNavigate();
+
+const navigateHandler = () => {
+  navigate('products');
+};
+
+```
+
+### Outlet
+
+`Outlet` element is used as a placeholder and used in parent route elements to render their child route elements to allow nested UI.
+
+```
+const RootLayout = () => {
+  return (
+    <>
+      <MainNavigation />
+      <main>
+        <Outlet />
+      </main>
+    </>
+  );
+};
+```
+
+### loader, useLoaderData
+
+React router v6 or higher, there is a extra property, `loader` from the route definition for fetching data. `loader` is a property that wants a function as a value. That function will be executed by react router whenever a user is visiting that route. ie. just before element/jsx code is rendered, the loader function will be executed. You can use the loader function to load and fetch data for the route.
+
+```
+{ index: true, element: <EventsPage />, loader: () => { return []; } },
+```
+
+Use `useLoaderData` hook to access data returned by the loader in the component or direct child components. It's a special hook to access closest loaded data.
